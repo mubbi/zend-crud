@@ -1,0 +1,34 @@
+<?php
+    $title = 'Add New Post';
+    $this->headTitle($title);
+?>
+
+<div class="jumbotron">
+    <h1>Add <span class="zf-green">Post</span></h1>
+</div>
+
+<?php
+    $form->setAttribute('action', $this->url('post', ['action' => 'add']));
+    $form->prepare();
+    echo $this->form()->openTag($form);
+    echo $this->formHidden($form->get('id'));
+?>
+    <div class="form-group">
+        <?php echo $this->formRow($form->get('title')); ?>
+    </div>
+
+    <div class="form-group">
+        <?php echo $this->formRow($form->get('description')); ?>
+    </div>
+
+    <div class="form-group">
+        <?php echo $this->formRow($form->get('category')); ?>
+    </div>
+
+    <div class="form-group">
+        <?php echo $this->formSubmit($form->get('submit')); ?>
+    </div>
+
+<?php
+    echo $this->form()->closeTag();
+?>
